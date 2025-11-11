@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     height: 100svh;
-   background: rgba(174, 19, 50, 1);
+    background: rgba(174, 19, 50, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +26,7 @@
     margin-top: 62px;
     z-index: 3;
 }
+
 .imageWomen {
     position: absolute;
     top: 172px;
@@ -65,7 +66,7 @@
 .imageBanana img {
     width: 323px;
     height: 264px;
-   
+
     object-fit: contain;
 }
 
@@ -109,9 +110,9 @@
 .description {
     position: absolute;
     top: 458px;
-    /* left: 62px; */ 
+    /* left: 62px; */
     left: 10%;
-     transform: translateX(calc(-50% + 116px + 30px));
+    transform: translateX(calc(-50% + 116px + 30px));
     width: 222px;
     height: 108px;
     display: flex;
@@ -129,7 +130,7 @@
 
 .fruitCard {
 
-     position: absolute;
+    position: absolute;
     top: 628px;
     /* right: 62px; */
     right: 82%;
@@ -142,10 +143,10 @@
     flex-direction: column;
     align-items: center;
     z-index: 3;
-   
-   
-   
-   
+
+
+
+
 }
 
 .fruitCard h3 {
@@ -153,10 +154,10 @@
     color: rgba(255, 255, 255, 1);
     font-family: DM Sans, sans-serif;
     font-size: 12px;
-font-weight: 400;
-line-height: 14px;
-letter-spacing: -4%;
-text-align: center;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: -4%;
+    text-align: center;
 }
 
 .fruitCardImage {
@@ -191,7 +192,7 @@ text-align: center;
 .fruitCardRight {
     position: absolute;
     top: 386px;
-  
+
     left: 65%;
     transform: translateX(calc(-50% + 226px + 10px));
     width: 249px;
@@ -213,7 +214,7 @@ text-align: center;
     line-height: 28px;
     letter-spacing: -0.04em;
     text-align: center;
-  
+
 }
 
 .fruitCardRightImage {
@@ -307,101 +308,105 @@ text-align: center;
 
 
 @media (min-width: 1024px) and (max-width: 1250px) {
-     .container {
-   
-    height: 92svh;
-  
-}
+    .container {
+
+        height: 92svh;
+
+    }
+
     .btnShop {
-   
-    top: calc(172px + 702px - 120px);
-   
-}
-     .description {
+
+        top: calc(172px + 702px - 120px);
+
+    }
+
+    .description {
         top: 400px;
         left: 10px;
         width: 200px;
         font-size: 14px;
         line-height: 17px;
     }
-    
- .fruitCard {
+
+    .fruitCard {
         top: 560px;
         left: -90px;
         width: 190px;
         height: 300px;
     }
-    
+
     .fruitCard h3 {
         margin-top: 18px;
         font-size: 12px;
         line-height: 22px;
     }
-    
+
     .fruitCardImage {
         margin-top: 40px;
         width: 140px;
         height: 120px;
     }
-    
+
     .fruitCardImage img {
         width: 140px;
         height: 120px;
     }
-    
+
     .fruitCardText {
         width: 120px;
         font-size: 10px;
         line-height: 12px;
         margin-top: 0px;
     }
-    
+
     .fruitCardRight {
         top: 340px;
         right: 40px;
         width: 190px;
         height: 300px;
     }
-    
+
     .fruitCardRight h3 {
         margin-top: 18px;
         font-size: 12px;
         line-height: 22px;
     }
-    
+
     .fruitCardRightImage {
         margin-top: 10px;
         width: 115px;
         height: 130px;
     }
-    
+
     .fruitCardRightImage img {
         width: 115px;
         height: 130px;
     }
-    
+
     .fruitCardRightText {
         width: 120px;
         font-size: 10px;
         line-height: 12px;
     }
+
     .tagsContainer {
- 
-    top: 817px;
-  
-    left: 63%;
-    transform: translateX(calc(-50% + 226px + 00px));
-  
-}
+
+        top: 817px;
+
+        left: 63%;
+        transform: translateX(calc(-50% + 226px + 00px));
+
+    }
 
 }
 
 @media (max-width: 1024px) {
     .container {
-   
-    height: 85svh;
-  
-}
+
+        height: 85svh;
+
+    }
+
     .title {
         width: 80%;
         font-size: 46px;
@@ -409,54 +414,54 @@ text-align: center;
         height: auto;
         padding: 0 20px;
     }
-    
+
     .imageWomen {
         top: 200px;
     }
-    
+
     .imageWomen img {
         width: 350px;
         height: 560px;
     }
-    
+
     .vectorWomen {
         top: 180px;
     }
-    
+
     .vectorWomen img {
         width: 410px;
         height: 590px;
     }
-    
+
     .imageBanana {
         top: 210px;
         transform: translateX(calc(-50% - 200px - 30px));
     }
-    
+
     .imageBanana img {
         width: 230px;
         height: 182px;
     }
-    
+
     .imageStrawberry {
         top: 90px;
         transform: translateX(calc(-50% + 200px + 0px));
     }
-    
+
     .imageStrawberry img {
         width: 140px;
         height: 140px;
     }
-    
+
     .btnShop {
         top: calc(200px + 560px - 100px);
     }
-    
+
     .btnShop img {
         width: 180px;
         height: 180px;
     }
-    
+
     .description {
         top: 400px;
         left: -30px;
@@ -464,32 +469,32 @@ text-align: center;
         font-size: 12px;
         line-height: 17px;
     }
-    
+
     .fruitCard {
         top: 550px;
         left: -130px;
         width: 160px;
         height: 260px;
-         
+
     }
-    
+
     .fruitCard h3 {
         margin-top: 16px;
         font-size: 12px;
         line-height: 20px;
     }
-    
+
     .fruitCardImage {
         margin-top: 35px;
         width: 120px;
         height: 103px;
     }
-    
+
     .fruitCardImage img {
         width: 120px;
         height: 103px;
     }
-    
+
     .fruitCardText {
         width: 110px;
         height: auto;
@@ -497,32 +502,32 @@ text-align: center;
         line-height: 11px;
         margin-top: 6px;
     }
-    
+
     .fruitCardRight {
         top: 320px;
         right: -180px;
         width: 160px;
         height: 260px;
-         transform: translateX(calc(-50% + 166px + 10px));
+        transform: translateX(calc(-50% + 166px + 10px));
     }
-    
+
     .fruitCardRight h3 {
         margin-top: 16px;
         font-size: 12px;
         line-height: 20px;
     }
-    
+
     .fruitCardRightImage {
         margin-top: 5px;
         width: 100px;
         height: 114px;
     }
-    
+
     .fruitCardRightImage img {
         width: 100px;
         height: 114px;
     }
-    
+
     .fruitCardRightText {
         width: 110px;
         height: auto;
@@ -530,22 +535,24 @@ text-align: center;
         line-height: 11px;
         margin-top: 6px;
     }
-     .tagsContainer {
- 
-    top: 780px;
-  
-    left: 52%;
-    transform: translateX(calc(-50% + 226px + 00px));
-  
-}
+
+    .tagsContainer {
+
+        top: 780px;
+
+        left: 52%;
+        transform: translateX(calc(-50% + 226px + 00px));
+
+    }
 }
 
 @media (max-width: 768px) {
-        .container {
-   
-    height: 100svh;
-  
-}
+    .container {
+
+        height: 100svh;
+
+    }
+
     .title {
         width: 95%;
         font-size: 36px;
@@ -553,54 +560,54 @@ text-align: center;
         margin-top: 50px;
         padding: 0 15px;
     }
-    
+
     .imageWomen {
         top: 180px;
     }
-    
+
     .imageWomen img {
         width: 320px;
         height: 488px;
     }
-    
+
     .vectorWomen {
         top: 160px;
     }
-    
+
     .vectorWomen img {
         width: 340px;
         height: 530px;
     }
-    
+
     .imageBanana {
         top: 110px;
         transform: translateX(calc(-50% - 130px - 0px));
     }
-    
+
     .imageBanana img {
         width: 180px;
         height: 142px;
     }
-    
+
     .imageStrawberry {
         top: 70px;
         transform: translateX(calc(-50% + 100px + 0px));
     }
-    
+
     .imageStrawberry img {
         width: 110px;
         height: 110px;
     }
-    
+
     .btnShop {
         top: calc(180px + 488px - 75px);
     }
-    
+
     .btnShop img {
         width: 150px;
         height: 150px;
     }
-    
+
     .description {
         top: 59dvh;
         left: -30px;
@@ -609,31 +616,31 @@ text-align: center;
         font-size: 11px;
         line-height: 14px;
     }
-    
+
     .fruitCard {
         top: 68dvh;
         left: -11dvh;
         width: 160px;
         height: 260px;
     }
-    
+
     .fruitCard h3 {
         margin-top: 16px;
         font-size: 12px;
         line-height: 20px;
     }
-    
+
     .fruitCardImage {
         margin-top: 35px;
         width: 120px;
         height: 103px;
     }
-    
+
     .fruitCardImage img {
         width: 120px;
         height: 103px;
     }
-    
+
     .fruitCardText {
         width: 110px;
         height: auto;
@@ -641,32 +648,32 @@ text-align: center;
         line-height: 11px;
         margin-top: 6px;
     }
-    
+
     .fruitCardRight {
         top: 55dvh;
         right: 30px;
         width: 160px;
         height: 260px;
-         transform: translateX(calc(-50% + 60px + 10px));
+        transform: translateX(calc(-50% + 60px + 10px));
     }
-    
+
     .fruitCardRight h3 {
         margin-top: 16px;
         font-size: 12px;
         line-height: 20px;
     }
-    
+
     .fruitCardRightImage {
         margin-top: 5px;
         width: 100px;
         height: 114px;
     }
-    
+
     .fruitCardRightImage img {
         width: 100px;
         height: 114px;
     }
-    
+
     .fruitCardRightText {
         width: 110px;
         height: auto;
@@ -674,24 +681,26 @@ text-align: center;
         line-height: 11px;
         margin-top: 6px;
     }
-     .tagsContainer {
- 
-    top: 80dvh;
 
-    right: 10dvh;
-    transform: translateX(calc(-50% + 86px + 00px));
-  
-}
+    .tagsContainer {
+
+        top: 80dvh;
+
+        right: 10dvh;
+        transform: translateX(calc(-50% + 86px + 00px));
+
+    }
 }
 
 
 
 @media (max-width: 480px) {
-        .container {
-   
-      min-height: 1800px;
-  
-}
+    .container {
+
+        min-height: 1800px;
+
+    }
+
     .title {
         width: 100%;
         font-size: 28px;
@@ -699,54 +708,54 @@ text-align: center;
         margin-top: 40px;
         padding: 0 10px;
     }
-    
+
     .imageWomen {
         top: 160px;
     }
-    
+
     .imageWomen img {
         width: 240px;
         height: 366px;
     }
-    
+
     .vectorWomen {
         top: 140px;
     }
-    
+
     .vectorWomen img {
         width: 260px;
         height: 400px;
     }
-    
+
     .imageBanana {
         top: 100px;
         transform: translateX(calc(-50% - 90px - 00px));
     }
-    
+
     .imageBanana img {
         width: 140px;
         height: 108px;
     }
-    
+
     .imageStrawberry {
         top: 490px;
         transform: translateX(calc(-50% + 80px + 0px));
     }
-    
+
     .imageStrawberry img {
         width: 90px;
         height: 90px;
     }
-    
+
     .btnShop {
         top: calc(160px + 366px - 55px);
     }
-    
+
     .btnShop img {
         width: 110px;
         height: 110px;
     }
-    
+
     .description {
         top: calc(160px + 366px + 70px);
         left: 50%;
@@ -764,7 +773,7 @@ text-align: center;
         letter-spacing: -0.04em;
         text-align: left;
     }
-    
+
     .fruitCard {
         top: calc(160px + 366px + 70px + 90px + 44px);
         left: 50%;
@@ -772,17 +781,18 @@ text-align: center;
         width: 249px;
         height: 387px;
     }
-     .fruitCardImage {
+
+    .fruitCardImage {
         margin-top: 50px;
         width: 200px;
         height: 183px;
     }
-    
+
     .fruitCardImage img {
-        width: 220px ;
+        width: 220px;
         height: 183px;
     }
-    
+
     .fruitCardText {
         width: 130px;
         height: auto;
@@ -790,31 +800,32 @@ text-align: center;
         line-height: 13px;
         margin-top: 5px;
     }
+
     .fruitCardRight {
         top: 55dvh;
         right: 30px;
         width: 160px;
         height: 260px;
-         transform: translateX(calc(-50% + 60px + 10px));
+        transform: translateX(calc(-50% + 60px + 10px));
     }
-    
+
     .fruitCardRight h3 {
         margin-top: 16px;
         font-size: 12px;
         line-height: 20px;
     }
-    
+
     .fruitCardRightImage {
         margin-top: 35px;
         width: 200px;
         height: 183px;
     }
-    
+
     .fruitCardRightImage img {
         width: 200px;
         height: 183px;
     }
-    
+
     .fruitCardRightText {
         width: 130px;
         height: auto;
@@ -822,22 +833,25 @@ text-align: center;
         line-height: 13px;
         margin-top: 10px;
     }
+
     .tagsContainer {
         top: calc(160px + 366px + 70px + 90px + 44px + 387px + 44px);
         left: 50%;
         transform: translateX(-50%);
-       
+
     }
+
     .tagButton {
-    width: 120px;
-    height: 38px;
-    
-}
+        width: 120px;
+        height: 38px;
+
+    }
+
     .tagButton:nth-child(3),
-.tagButton:nth-child(4) {
-    width: 120px;
-}
-    
+    .tagButton:nth-child(4) {
+        width: 120px;
+    }
+
     .fruitCardRight {
         top: calc(60px + 306px + 70px + 90px + 44px + 387px + 44px + 260px + 44px);
         left: 50%;
@@ -846,4 +860,3 @@ text-align: center;
         height: 387px;
     }
 }
-
