@@ -270,7 +270,7 @@
   .carousel {
     display: block;
     width: 100%;
-    max-width: 389px;
+    max-width: 300px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
