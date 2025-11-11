@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Разрешаем чтение и запись для всех файлов
+    // ВНИМАНИЕ: Это правило для разработки, в продакшене используйте более строгие правила
+    match /{allPaths=**} {
+      allow read, write: if true;
+    }
+  }
+}

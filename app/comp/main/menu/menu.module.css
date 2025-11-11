@@ -1,0 +1,170 @@
+.menu {
+  position: relative;
+  width: 100%;
+  height: 3.125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.1875rem;
+  background: rgba(255, 255, 255, 1);
+  z-index: 1000;
+}
+
+.left {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.link {
+  width: 5.5rem;
+  height: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(174, 19, 50, 1);
+  font-family: DM Sans, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoText {
+  width: 9.25rem;
+  height: 1.125rem;
+  display: flex;
+  align-items: center;
+  color: rgba(174, 19, 50, 1);
+  font-family: DM Sans, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.125rem;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.contactButton {
+  width: 7.3125rem;
+  height: 2rem;
+  background: rgba(174, 19, 50, 1);
+  border: none;
+  border-radius: 3.125rem;
+  color: white;
+  font-family: DM Sans, sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactButton:hover {
+  opacity: 0.9;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+}
+
+.burger span {
+  height: 0.125rem;
+  background: rgba(174, 19, 50, 1);
+  transition: all 0.3s;
+}
+
+.burger span:nth-child(1) {
+  width: 0.75rem;
+}
+
+.burger span:nth-child(2) {
+  width: 1.5rem;
+}
+
+.burger span:nth-child(3) {
+  width: 1.05rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding: 0 1rem;
+  }
+
+  .left,
+  .right {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+  .logo {
+    position: static;
+    transform: none;
+    margin-left: 1.1875rem;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+
+  .mobileLink {
+    color: rgba(174, 19, 50, 1);
+    font-family: DM Sans, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .mobileMenu .contactButton {
+    width: 100%;
+  }
+}

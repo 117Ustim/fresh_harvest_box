@@ -1,0 +1,18 @@
+/* Общие CSS переменные для админ-панели */
+
+:root {
+  --admin-primary-color: #1976D2;
+  --admin-overlay-bg: rgba(0, 0, 0, 0.5);
+  --admin-panel-bg: white;
+  --admin-border-color: #e0e0e0;
+  --admin-text-primary: #333;
+  --admin-text-secondary: #666;
+  --admin-text-muted: #999;
+  --admin-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --admin-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --admin-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --admin-radius-sm: 4px;
+  --admin-radius-md: 8px;
+  --admin-radius-lg: 12px;
+  --admin-transition: all 0.3s ease;
+}

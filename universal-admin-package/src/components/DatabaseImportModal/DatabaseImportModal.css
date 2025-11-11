@@ -1,0 +1,113 @@
+/* Стили для модального окна импорта базы данных */
+
+.database-import-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--admin-overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
+}
+
+.database-import-modal {
+  background: white;
+  border-radius: var(--admin-radius-lg);
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: var(--admin-shadow-lg);
+}
+
+.database-import-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.database-import-modal-title {
+  margin: 0;
+  font-size: 20px;
+  color: var(--admin-text-primary);
+}
+
+.database-import-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--admin-text-secondary);
+  padding: 0;
+  transition: var(--admin-transition);
+}
+
+.database-import-modal-close:hover {
+  color: var(--admin-text-primary);
+}
+
+.database-import-modal-body {
+  margin-bottom: 20px;
+}
+
+.database-import-modal-description {
+  color: var(--admin-text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.database-import-modal-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 12px 16px;
+  border: 1px solid var(--admin-border-color);
+  border-radius: var(--admin-radius-md);
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.database-import-modal-textarea:focus {
+  outline: none;
+  border-color: var(--admin-primary-color);
+}
+
+.database-import-modal-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.database-import-modal-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--admin-radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--admin-transition);
+}
+
+.database-import-modal-button-primary {
+  background-color: var(--admin-primary-color);
+  color: white;
+}
+
+.database-import-modal-button-primary:hover {
+  opacity: 0.9;
+}
+
+.database-import-modal-button-secondary {
+  background-color: #f5f5f5;
+  color: var(--admin-text-primary);
+}
+
+.database-import-modal-button-secondary:hover {
+  background-color: #e0e0e0;
+}

@@ -1,0 +1,197 @@
+/* Стили для динамического редактора документов */
+
+.document-editor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.document-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--admin-border-color);
+}
+
+.document-editor-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  margin: 0;
+}
+
+.document-editor-back {
+  background: none;
+  border: none;
+  color: var(--admin-primary-color);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  transition: var(--admin-transition);
+}
+
+.document-editor-back:hover {
+  opacity: 0.7;
+}
+
+.document-editor-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.document-editor-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: var(--admin-radius-md);
+}
+
+.document-editor-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--admin-primary-color);
+}
+
+.document-editor-field {
+  margin-bottom: 20px;
+}
+
+.document-editor-field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--admin-text-secondary);
+  font-size: 14px;
+}
+
+.document-editor-input,
+.document-editor-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--admin-border-color);
+  border-radius: var(--admin-radius-md);
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.document-editor-input:focus,
+.document-editor-textarea:focus {
+  outline: none;
+  border-color: var(--admin-primary-color);
+}
+
+.document-editor-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.document-editor-footer {
+  padding-top: 20px;
+  border-top: 1px solid var(--admin-border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.document-editor-save {
+  padding: 12px 24px;
+  background-color: var(--admin-primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--admin-radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--admin-transition);
+}
+
+.document-editor-save:hover {
+  opacity: 0.9;
+}
+
+.document-editor-save:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.document-editor-loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--admin-text-secondary);
+}
+
+/* Стили для полей изображений */
+.document-editor-image-field {
+  margin-bottom: 20px;
+}
+
+.document-editor-image-preview {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: var(--admin-radius-md);
+  margin-top: 10px;
+}
+
+.document-editor-image-upload {
+  padding: 10px 20px;
+  background-color: var(--admin-primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--admin-radius-md);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--admin-transition);
+}
+
+.document-editor-image-upload:hover {
+  opacity: 0.9;
+}
+
+/* Стили для массивов */
+.document-editor-array {
+  border: 1px solid var(--admin-border-color);
+  border-radius: var(--admin-radius-md);
+  padding: 15px;
+  background: white;
+}
+
+.document-editor-array-item {
+  padding: 15px;
+  border: 1px solid var(--admin-border-color);
+  border-radius: var(--admin-radius-md);
+  margin-bottom: 10px;
+  background: #fafafa;
+}
+
+.document-editor-array-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.document-editor-array-item-title {
+  font-weight: 600;
+  color: var(--admin-text-primary);
+}
+
+.document-editor-array-item-delete {
+  background: none;
+  border: none;
+  color: #f44336;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+  transition: var(--admin-transition);
+}
+
+.document-editor-array-item-delete:hover {
+  opacity: 0.7;
+}

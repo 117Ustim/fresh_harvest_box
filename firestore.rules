@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Разрешаем чтение и запись для всех документов
+    // ВНИМАНИЕ: Это правило для разработки, в продакшене используйте более строгие правила
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
