@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    min-height: 100dvh;
+    height: 100svh;
    background: rgba(174, 19, 50, 1);
     display: flex;
     flex-direction: column;
@@ -309,7 +309,7 @@ text-align: center;
 @media (min-width: 1024px) and (max-width: 1250px) {
      .container {
    
-    min-height: 92dvh;
+    height: 92svh;
   
 }
     .btnShop {
@@ -399,7 +399,7 @@ text-align: center;
 @media (max-width: 1024px) {
     .container {
    
-    min-height: 85dvh;
+    height: 85svh;
   
 }
     .title {
@@ -543,7 +543,7 @@ text-align: center;
 @media (max-width: 768px) {
         .container {
    
-    min-height: 100dvh;
+    height: 100svh;
   
 }
     .title {
@@ -689,7 +689,7 @@ text-align: center;
 @media (max-width: 480px) {
         .container {
    
-    min-height: 143dvh;
+    height: 143svh;
   
 }
     .title {
