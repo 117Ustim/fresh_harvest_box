@@ -689,7 +689,8 @@ text-align: center;
 @media (max-width: 480px) {
         .container {
    
-    height: 143svh;
+      height: auto;
+        min-height: 143vh;
   
 }
     .title {
