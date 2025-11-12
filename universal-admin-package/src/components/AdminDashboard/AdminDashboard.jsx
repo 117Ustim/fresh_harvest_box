@@ -72,7 +72,8 @@ export function AdminDashboard({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(15, 23, 42, 0.75)',
+    backdropFilter: 'blur(4px)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -80,28 +81,45 @@ export function AdminDashboard({
   };
 
   const panelStyle = {
-    backgroundColor: 'white',
-    borderRadius: '12px',
+    backgroundColor: '#f1f5f9',
+    borderRadius: '16px',
     width: '90%',
     maxWidth: '1200px',
     height: '90vh',
     display: 'flex',
     flexDirection: 'column',
-    boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
+    border: '1px solid #e2e8f0'
   };
 
   const headerStyle = {
-    padding: '20px 30px',
-    borderBottom: '1px solid #e0e0e0',
+    padding: '24px 32px',
+    borderBottom: '1px solid #e2e8f0',
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    background: '#ffffff',
+    borderRadius: '16px 16px 0 0'
   };
 
   const contentStyle = {
     flex: 1,
     overflow: 'auto',
-    padding: '30px'
+    padding: '32px',
+    background: '#f1f5f9'
+  };
+
+  const glassButtonStyle = {
+    padding: '10px 20px',
+    background: 'rgba(255, 255, 255, 0.15)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    borderRadius: '10px',
+    color: 'white',
+    fontSize: '14px',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease'
   };
 
   // Экран авторизации
@@ -121,31 +139,35 @@ export function AdminDashboard({
               onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
               style={{
                 width: '100%',
-                padding: '12px',
-                fontSize: '16px',
-                border: '1px solid #ddd',
-                borderRadius: '6px',
-                marginBottom: '16px'
+                padding: '14px 18px',
+                fontSize: '15px',
+                border: '1px solid #e2e8f0',
+                borderRadius: '10px',
+                marginBottom: '16px',
+                background: '#ffffff',
+                color: '#1e293b',
+                transition: 'all 0.2s ease'
               }}
             />
             <button
               onClick={handleLogin}
               style={{
                 width: '100%',
-                padding: '12px',
-                backgroundColor: theme.primaryColor || '#1976D2',
+                padding: '14px',
+                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
                 color: 'white',
                 border: 'none',
-                borderRadius: '6px',
-                fontSize: '16px',
+                borderRadius: '10px',
+                fontSize: '15px',
                 cursor: 'pointer',
-                fontWeight: '600'
+                fontWeight: '600',
+                transition: 'all 0.2s ease'
               }}
             >
               Войти
             </button>
-            <p style={{marginTop: '16px', fontSize: '12px', color: '#666', textAlign: 'center'}}>
-              Пароль по умолчанию: admin123
+            <p style={{marginTop: '16px', fontSize: '12px', color: '#64748b', textAlign: 'center'}}>
+              Пароль по умолчанию: 777
             </p>
           </div>
         </div>
@@ -165,14 +187,11 @@ export function AdminDashboard({
                 <button
                   onClick={() => setShowDatabaseImport(true)}
                   style={{
-                    padding: '8px 16px',
-                    backgroundColor: '#9C27B0',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '6px',
-                    cursor: 'pointer',
-                    fontSize: '14px',
-                    fontWeight: '600'
+                    ...glassButtonStyle,
+                    background: 'rgba(156, 39, 176, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(156, 39, 176, 0.3)',
+                    color: '#9C27B0'
                   }}
                   title="Импортировать данные из database.js"
                 >
@@ -181,14 +200,11 @@ export function AdminDashboard({
                 <button
                   onClick={() => setShowCreatePage(true)}
                   style={{
-                    padding: '8px 16px',
-                    backgroundColor: theme.primaryColor || '#1976D2',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '6px',
-                    cursor: 'pointer',
-                    fontSize: '14px',
-                    fontWeight: '600'
+                    ...glassButtonStyle,
+                    background: 'rgba(99, 102, 241, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(99, 102, 241, 0.3)',
+                    color: '#6366f1'
                   }}
                 >
                   + Создать страницу
@@ -196,14 +212,11 @@ export function AdminDashboard({
                 <button 
                   onClick={onClose}
                   style={{
-                    padding: '8px 16px',
-                    backgroundColor: '#f44336',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '6px',
-                    cursor: 'pointer',
-                    fontSize: '14px',
-                    fontWeight: '600'
+                    ...glassButtonStyle,
+                    background: 'rgba(239, 68, 68, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(239, 68, 68, 0.3)',
+                    color: '#ef4444'
                   }}
                 >
                   Закрыть

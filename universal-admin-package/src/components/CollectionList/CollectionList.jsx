@@ -8,17 +8,19 @@ export function CollectionList({ configParser, onSelectCollection, onDeletePage 
   const collections = configParser.getCollections();
 
   const cardStyle = {
-    padding: '20px',
-    backgroundColor: '#f5f5f5',
-    borderRadius: '8px',
+    padding: '24px',
+    backgroundColor: '#ffffff',
+    borderRadius: '12px',
     cursor: 'pointer',
     transition: 'all 0.2s ease',
-    marginBottom: '12px'
+    marginBottom: '12px',
+    border: '1px solid #e2e8f0',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
   };
 
   return (
     <div>
-      <h3 style={{marginBottom: '24px', fontSize: '24px'}}>Выберите страницу для редактирования</h3>
+      <h3 style={{marginBottom: '32px', fontSize: '24px', fontWeight: '600', color: '#1e293b'}}>Выберите страницу для редактирования</h3>
       
       {collections.map(collectionName => {
         const collection = configParser.getCollection(collectionName);
@@ -28,10 +30,11 @@ export function CollectionList({ configParser, onSelectCollection, onDeletePage 
           <div key={collectionName} style={{marginBottom: '32px'}}>
             <h4 style={{
               marginBottom: '16px',
-              fontSize: '18px',
-              color: '#666',
+              fontSize: '16px',
+              color: '#64748b',
               textTransform: 'uppercase',
-              letterSpacing: '1px'
+              letterSpacing: '1.5px',
+              fontWeight: '600'
             }}>
               {collectionName}
             </h4>
@@ -42,22 +45,24 @@ export function CollectionList({ configParser, onSelectCollection, onDeletePage 
                   key={docId}
                   style={{...cardStyle, position: 'relative'}}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#e0e0e0';
+                    e.currentTarget.style.backgroundColor = '#f8fafc';
                     e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#f5f5f5';
+                    e.currentTarget.style.backgroundColor = '#ffffff';
                     e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.08)';
                   }}
                 >
                   <div 
                     onClick={() => onSelectCollection(collectionName, docId)}
                     style={{cursor: 'pointer'}}
                   >
-                    <div style={{fontSize: '16px', fontWeight: '600', marginBottom: '8px'}}>
+                    <div style={{fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#1e293b'}}>
                       📄 {docId}
                     </div>
-                    <div style={{fontSize: '14px', color: '#666'}}>
+                    <div style={{fontSize: '14px', color: '#64748b'}}>
                       {Object.keys(collection[docId]).length} полей
                     </div>
                   </div>
@@ -73,21 +78,22 @@ export function CollectionList({ configParser, onSelectCollection, onDeletePage 
                       }}
                       style={{
                         position: 'absolute',
-                        top: '8px',
-                        right: '8px',
-                        backgroundColor: '#f44336',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '4px',
-                        width: '24px',
-                        height: '24px',
+                        top: '12px',
+                        right: '12px',
+                        background: 'rgba(239, 68, 68, 0.15)',
+                        backdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(239, 68, 68, 0.3)',
+                        color: '#ef4444',
+                        borderRadius: '8px',
+                        width: '28px',
+                        height: '28px',
                         cursor: 'pointer',
-                        fontSize: '14px',
+                        fontSize: '16px',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         opacity: 0.7,
-                        transition: 'opacity 0.2s'
+                        transition: 'all 0.2s ease'
                       }}
                       onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
                       onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}

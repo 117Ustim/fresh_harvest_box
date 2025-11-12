@@ -161,12 +161,37 @@ export function DatabaseImportModal({
   };
 
   const buttonStyle = {
-    padding: '10px 20px',
-    borderRadius: '6px',
+    padding: '12px 24px',
+    borderRadius: '10px',
     border: 'none',
     fontSize: '14px',
     fontWeight: '600',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    transition: 'all 0.2s ease'
+  };
+
+  const glassButtonPrimary = {
+    ...buttonStyle,
+    background: 'rgba(99, 102, 241, 0.15)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(99, 102, 241, 0.3)',
+    color: '#6366f1'
+  };
+
+  const glassButtonSuccess = {
+    ...buttonStyle,
+    background: 'rgba(16, 185, 129, 0.15)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(16, 185, 129, 0.3)',
+    color: '#10b981'
+  };
+
+  const glassButtonSecondary = {
+    ...buttonStyle,
+    background: 'rgba(100, 116, 139, 0.15)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(100, 116, 139, 0.3)',
+    color: '#64748b'
   };
 
   return (
@@ -182,11 +207,7 @@ export function DatabaseImportModal({
           </h2>
           <button
             onClick={onClose}
-            style={{
-              ...buttonStyle,
-              backgroundColor: '#f5f5f5',
-              color: '#666'
-            }}
+            style={glassButtonSecondary}
           >
             ✕
           </button>
@@ -371,11 +392,7 @@ export function DatabaseImportModal({
             <>
               <button
                 onClick={onClose}
-                style={{
-                  ...buttonStyle,
-                  backgroundColor: '#f5f5f5',
-                  color: '#666'
-                }}
+                style={glassButtonSecondary}
               >
                 Отмена
               </button>
@@ -383,9 +400,7 @@ export function DatabaseImportModal({
                 onClick={handleParse}
                 disabled={!databaseCode.trim()}
                 style={{
-                  ...buttonStyle,
-                  backgroundColor: theme.primaryColor || '#1976D2',
-                  color: 'white',
+                  ...glassButtonPrimary,
                   opacity: !databaseCode.trim() ? 0.5 : 1,
                   cursor: !databaseCode.trim() ? 'not-allowed' : 'pointer'
                 }}
@@ -399,21 +414,13 @@ export function DatabaseImportModal({
             <>
               <button
                 onClick={() => setStep('input')}
-                style={{
-                  ...buttonStyle,
-                  backgroundColor: '#f5f5f5',
-                  color: '#666'
-                }}
+                style={glassButtonSecondary}
               >
                 ← Назад
               </button>
               <button
                 onClick={handleImport}
-                style={{
-                  ...buttonStyle,
-                  backgroundColor: '#4CAF50',
-                  color: 'white'
-                }}
+                style={glassButtonSuccess}
               >
                 Импортировать
               </button>
@@ -423,11 +430,7 @@ export function DatabaseImportModal({
           {(step === 'error') && (
             <button
               onClick={() => setStep('input')}
-              style={{
-                ...buttonStyle,
-                backgroundColor: theme.primaryColor || '#1976D2',
-                color: 'white'
-              }}
+              style={glassButtonPrimary}
             >
               Попробовать снова
             </button>

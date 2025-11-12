@@ -296,17 +296,21 @@ export function DynamicDocumentEditor({
           <button
             onClick={onBack}
             style={{
-              padding: '8px 16px',
-              backgroundColor: '#f5f5f5',
-              border: 'none',
-              borderRadius: '6px',
+              padding: '10px 20px',
+              background: 'rgba(100, 116, 139, 0.15)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(100, 116, 139, 0.3)',
+              color: '#64748b',
+              borderRadius: '10px',
               cursor: 'pointer',
-              marginBottom: '12px'
+              marginBottom: '12px',
+              fontWeight: '600',
+              transition: 'all 0.2s ease'
             }}
           >
             ← Назад
           </button>
-          <h3 style={{ margin: 0, fontSize: '24px' }}>
+          <h3 style={{ margin: 0, fontSize: '24px', fontWeight: '600', color: '#1e293b' }}>
             Редактирование: {collection} / {documentId}
           </h3>
         </div>
@@ -315,15 +319,17 @@ export function DynamicDocumentEditor({
           onClick={handleSave}
           disabled={saving}
           style={{
-            padding: '12px 32px',
-            backgroundColor: theme.primaryColor || '#1976D2',
-            color: 'white',
-            border: 'none',
-            borderRadius: '6px',
+            padding: '14px 32px',
+            background: 'rgba(99, 102, 241, 0.15)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(99, 102, 241, 0.3)',
+            color: '#6366f1',
+            borderRadius: '10px',
             cursor: saving ? 'not-allowed' : 'pointer',
-            fontSize: '16px',
+            fontSize: '15px',
             fontWeight: '600',
-            opacity: saving ? 0.6 : 1
+            opacity: saving ? 0.6 : 1,
+            transition: 'all 0.2s ease'
           }}
         >
           {saving ? 'Сохранение...' : '💾 Сохранить'}
@@ -336,13 +342,15 @@ export function DynamicDocumentEditor({
           onClick={() => setShowFieldMenu(!showFieldMenu)}
           style={{
             padding: '12px 24px',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
-            borderRadius: '6px',
+            background: 'rgba(16, 185, 129, 0.15)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(16, 185, 129, 0.3)',
+            color: '#10b981',
+            borderRadius: '10px',
             cursor: 'pointer',
             fontSize: '14px',
-            fontWeight: '600'
+            fontWeight: '600',
+            transition: 'all 0.2s ease'
           }}
         >
           + Добавить поле ▼
@@ -419,10 +427,11 @@ export function DynamicDocumentEditor({
                   onClick={() => handleMoveUp(index)}
                   disabled={index === 0}
                   style={{
-                    padding: '4px 8px',
-                    backgroundColor: index === 0 ? '#f5f5f5' : '#e0e0e0',
-                    color: index === 0 ? '#ccc' : '#333',
-                    border: 'none',
+                    padding: '6px 10px',
+                    background: index === 0 ? 'rgba(100, 116, 139, 0.1)' : 'rgba(100, 116, 139, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(100, 116, 139, 0.2)',
+                    color: index === 0 ? '#cbd5e1' : '#64748b',
                     borderRadius: '4px',
                     cursor: index === 0 ? 'not-allowed' : 'pointer',
                     fontSize: '16px'
@@ -435,10 +444,11 @@ export function DynamicDocumentEditor({
                   onClick={() => handleMoveDown(index)}
                   disabled={index === fields.length - 1}
                   style={{
-                    padding: '4px 8px',
-                    backgroundColor: index === fields.length - 1 ? '#f5f5f5' : '#e0e0e0',
-                    color: index === fields.length - 1 ? '#ccc' : '#333',
-                    border: 'none',
+                    padding: '6px 10px',
+                    background: index === fields.length - 1 ? 'rgba(100, 116, 139, 0.1)' : 'rgba(100, 116, 139, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(100, 116, 139, 0.2)',
+                    color: index === fields.length - 1 ? '#cbd5e1' : '#64748b',
                     borderRadius: '4px',
                     cursor: index === fields.length - 1 ? 'not-allowed' : 'pointer',
                     fontSize: '16px'
@@ -451,9 +461,10 @@ export function DynamicDocumentEditor({
                   onClick={() => setDeleteConfirm(field.name)}
                   style={{
                     padding: '6px 12px',
-                    backgroundColor: '#f44336',
-                    color: 'white',
-                    border: 'none',
+                    background: 'rgba(239, 68, 68, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(239, 68, 68, 0.3)',
+                    color: '#ef4444',
                     borderRadius: '4px',
                     cursor: 'pointer',
                     fontSize: '12px',
@@ -507,10 +518,11 @@ export function DynamicDocumentEditor({
               <button
                 onClick={() => setDeleteConfirm(null)}
                 style={{
-                  padding: '10px 20px',
-                  backgroundColor: '#f5f5f5',
-                  color: '#333',
-                  border: 'none',
+                  padding: '12px 24px',
+                  background: 'rgba(100, 116, 139, 0.15)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(100, 116, 139, 0.3)',
+                  color: '#64748b',
                   borderRadius: '6px',
                   cursor: 'pointer',
                   fontSize: '14px',
@@ -522,10 +534,11 @@ export function DynamicDocumentEditor({
               <button
                 onClick={() => handleDeleteField(deleteConfirm)}
                 style={{
-                  padding: '10px 20px',
-                  backgroundColor: '#f44336',
-                  color: 'white',
-                  border: 'none',
+                  padding: '12px 24px',
+                  background: 'rgba(239, 68, 68, 0.15)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  color: '#ef4444',
                   borderRadius: '6px',
                   cursor: 'pointer',
                   fontSize: '14px',

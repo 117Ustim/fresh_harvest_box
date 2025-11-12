@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Main from '../app/comp/main/Main'
 import Comp2 from './comp/comp2/Comp2'
 import Comp1 from './comp/comp1/Comp1'
+import Comp3 from './comp/comp3/Comp3'
 import Footer from '../app/comp/footer/Footer'
 
 
@@ -14,6 +15,7 @@ export default function Home() {
     { id: "main", component: <Main /> },
     { id: "comp1", component: <Comp1/> },
     { id: "comp2", component: <Comp2 /> },
+    { id: "comp3", component: <Comp3/> },
     { id: "footer", component: <Footer /> },
   ];
 
@@ -21,7 +23,7 @@ export default function Home() {
   const sectionVariants = {
     hidden: { 
       opacity: 0, 
-      y: 80 
+      y: 40 
     },
     visible: { 
       opacity: 1, 
