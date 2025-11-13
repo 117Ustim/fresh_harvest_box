@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 
 *{
 	padding: 0;
@@ -21,7 +21,7 @@ html{
 }
 
 body{
-  font-family: "Libre Baskerville", serif;
+ 
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -36,6 +36,11 @@ body{
 	max-width: 1920px;
 	margin: 0 auto;
 	background: rgb(222, 221, 221);
+}
+
+/* DM Sans font */
+:root {
+  --font-dm-sans: 'DM Sans', sans-serif;
 }
 
 /* Плавный скроллинг для всех элементов */

@@ -3,20 +3,20 @@ import { motion } from "framer-motion";
 import styles from'./main.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AdminPanel, useContent } from '../../../universal-admin-package/src/index';
+ import { useContent } from '../../../universal-admin-package/src/index';
 import Menu from "./menu/Menu";
 
-export default function Main () {
+export default function Main ({ openModal }) {
   // Получаем данные из Firebase через useContent
   const heroData = useContent('pages.main.hero') || {};
   const galleryData = useContent('pages.main.gallery') || {};
 
   return (
 <>
- {/* Кнопка админ-панели (⚙️ в правом нижнем углу) */}
-      <AdminPanel theme={{ primaryColor: '#1976D2' }} />
+ {/* Кнопка админ-панели (⚙️ в правом нижнем углу)
+      <AdminPanel theme={{ primaryColor: '#1976D2' }} /> */}
     <div className={styles.container}>
-   <Menu/>
+   <Menu openModal={openModal} />
    <h1 className={styles.title}>
      fresh harvest box is your one-stop place for a delicious fruit basket
    </h1>
@@ -59,14 +59,21 @@ export default function Main () {
      />
    </div>
    
-   <Link href="#" className={styles.btnShop}>
+   <button 
+     onClick={() => {
+       console.log('btnShop clicked');
+       openModal();
+     }} 
+     
+   >
      <Image 
        src="/main/btn_shop.png" 
        alt="Shop button"
-       width={114}
-       height={114}
+       width={220}
+       height={220}
+       className={styles.btnShop}
      />
-   </Link>
+   </button>
    
  <p className={styles.description}>
      Our expertly curated fruit baskets are made with the freshest, highest quality fruits available. Whether you are looking for a healthy snack or a gift for a loved one, Fresh Harvest Box has got you covered.

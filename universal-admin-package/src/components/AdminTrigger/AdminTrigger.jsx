@@ -16,7 +16,7 @@ export function AdminTrigger({ onClick, theme = {} }) {
       className="admin-trigger"
       style={style}
     >
-      ⚙️ Админ-панель
+      ⚙️
     </button>
   );
 }

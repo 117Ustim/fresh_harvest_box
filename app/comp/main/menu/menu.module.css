@@ -17,7 +17,7 @@
 }
 
 .link {
-  width: 5.5rem;
+  width: 5.9rem;
   height: 1.125rem;
   display: flex;
   align-items: center;
@@ -122,6 +122,14 @@
   display: none;
 }
 
+.mobileOverlay {
+  display: none;
+}
+
+.mobileContactButton {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .menu {
     padding: 0 1rem;
@@ -135,36 +143,82 @@
   .burger {
     display: flex;
   }
+  
   .logo {
     position: static;
     transform: none;
     margin-left: 1.1875rem;
   }
 
+  /* Затемненный фон */
+  .mobileOverlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+  }
+
+  /* Выезжающее меню */
   .mobileMenu {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 1);
-    padding: 1rem;
-    gap: 1rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    background: rgba(174, 19, 50, 1);
+    padding: 4rem 2rem 2rem 2rem;
+    gap: 2rem;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    overflow-y: auto;
   }
 
   .mobileLink {
-    color: rgba(174, 19, 50, 1);
+    color: rgba(255, 255, 255, 1);
     font-family: DM Sans, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
+    font-size: 1.125rem;
+    font-weight: 500;
     text-decoration: none;
-    padding: 0.5rem;
-    text-align: center;
+    padding: 1rem;
+    text-align: left;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .mobileMenu .contactButton {
+  .mobileLink:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 1.5rem;
+  }
+
+  .mobileContactButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 3rem;
+    background: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 3.125rem;
+    color: rgba(174, 19, 50, 1);
+    font-family: DM Sans, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+
+  .mobileContactButton:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
   }
 }

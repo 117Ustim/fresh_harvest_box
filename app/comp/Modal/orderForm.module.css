@@ -1,0 +1,363 @@
+.orderContainer {
+  width: 100%;
+  padding: 40px;
+}
+
+.title {
+  width: 232px;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgba(174, 19, 50, 1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  width: 257px;
+  height: 308px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.cardHeader {
+  padding: 40px 0 0 20px;
+}
+
+.cardTitle {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  margin: 0 0 4px 0;
+}
+
+.cardPlant {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  margin: 0;
+}
+
+.cardImageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cardImage {
+  width: 229px;
+  height: 196px;
+  object-fit: contain;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-left: 0;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input {
+  width: 360px;
+  height: 48px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 100px;
+  padding: 0 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  background: white;
+}
+
+.input::placeholder {
+  opacity: 0.5;
+}
+
+.textarea {
+  width: 360px;
+  height: 145px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 15px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  resize: none;
+  background: white;
+}
+
+.textarea::placeholder {
+  opacity: 0.5;
+}
+
+.submitButton {
+  width: 114px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 35px;
+  border-radius: 100px;
+  background: rgba(157, 193, 98, 1);
+  border: none;
+  cursor: pointer;
+  margin-top: 26px;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background: rgba(147, 183, 88, 1);
+  transform: scale(1.05);
+}
+
+.submitButton span,
+.submitButton {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.imageSection {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sideImage {
+  width: 471px;
+  height: 458px;
+  object-fit: cover;
+}
+
+/* Адаптивность */
+@media (max-width: 1400px) {
+  .cards {
+    gap: 15px;
+  }
+  
+  .card {
+    width: 240px;
+    height: 295px;
+  }
+  
+  .cardImage {
+    width: 210px;
+    height: 180px;
+  }
+}
+
+/* Скрываем третью карточку на средних экранах */
+@media (max-width: 900px) {
+  .cardThird {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .formSection {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .imageSection {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .sideImage {
+    width: 100%;
+    max-width: 471px;
+    height: auto;
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 900px) {
+  .orderContainer {
+    padding: 30px 20px;
+  }
+  
+  .cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .card {
+    width: 240px;
+    height: 290px;
+  }
+  
+  .cardImageWrapper {
+    margin-top: 10px;
+  }
+  
+  .cardImage {
+    width: 200px;
+    height: 170px;
+  }
+}
+
+/* Скрываем вторую карточку на маленьких экранах */
+@media (max-width: 600px) {
+  .cardSecond {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .orderContainer {
+    padding: 20px 15px;
+  }
+  
+  .title {
+    font-size: 32px;
+    width: auto;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  
+  .cards {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 280px;
+  }
+  
+  .cardHeader {
+    padding: 30px 0 0 20px;
+  }
+  
+  .cardTitle {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .submitButton {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .orderContainer {
+    padding: 15px 10px;
+  }
+  
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .cards {
+    gap: 0;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    min-height: 260px;
+  }
+  
+  .cardHeader {
+    padding: 25px 0 0 15px;
+  }
+  
+  .cardTitle {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  
+  .cardPlant {
+    font-size: 13px;
+  }
+  
+  .cardImageWrapper {
+    margin-top: 15px;
+  }
+  
+  .cardImage {
+    width: 180px;
+    height: 150px;
+  }
+  
+  .input {
+    height: 44px;
+    font-size: 13px;
+  }
+  
+  .textarea {
+    height: 120px;
+    font-size: 13px;
+  }
+  
+  .submitButton {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+  
+  .sideImage {
+    max-width: 100%;
+  }
+}

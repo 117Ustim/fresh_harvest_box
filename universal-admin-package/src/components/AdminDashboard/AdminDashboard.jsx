@@ -166,9 +166,9 @@ export function AdminDashboard({
             >
               Войти
             </button>
-            <p style={{marginTop: '16px', fontSize: '12px', color: '#64748b', textAlign: 'center'}}>
-              Пароль по умолчанию: 777
-            </p>
+            {/* <p style={{marginTop: '16px', fontSize: '12px', color: '#64748b', textAlign: 'center'}}>
+              Пароль по умолчанию: 
+            </p> */}
           </div>
         </div>
       </div>

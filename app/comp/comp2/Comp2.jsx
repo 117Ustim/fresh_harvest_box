@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styles from './comp2.module.css';
 import Image from 'next/image';
 
-export default function Comp2() {
+export default function Comp2({ openModal }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const products = [
@@ -98,7 +98,13 @@ export default function Comp2() {
           </div>
         </div>
 
-        <Link href="#" className={styles.orderCircle}>
+        <button 
+          onClick={() => {
+            console.log('orderCircle clicked');
+            openModal();
+          }} 
+          className={styles.orderCircle}
+        >
           <Image 
             src="/comp_1/Vector.png" 
             alt="Order"
@@ -107,7 +113,7 @@ export default function Comp2() {
             className={styles.orderIcon}
           />
           <span className={styles.orderText}>ORDER</span>
-        </Link>
+        </button>
       </div>
     </div>
   );

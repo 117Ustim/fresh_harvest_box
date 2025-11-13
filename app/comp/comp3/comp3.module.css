@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 20px 40px;
+    padding: 100px 20px 110px 20px;
 }
 
 .title {
@@ -67,6 +67,68 @@
     margin: 80px 0 0 0;
 }
 
+.emailForm {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.inputWrapper {
+    position: relative;
+    width: 292px;
+    height: 48px;
+}
+
+.emailInput {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 100px;
+    background: transparent;
+    padding: 15px 110px 15px 20px;
+    color: rgba(255, 255, 255, 1);
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+}
+
+.emailInput::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.submitButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 102px;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 35px;
+    border-radius: 100px;
+    background: rgba(157, 193, 98, 1);
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    text-transform: capitalize;
+    transition: background 0.3s ease;
+}
+
+.submitButton:hover {
+    background: rgba(137, 173, 78, 1);
+}
+
 @media (max-width: 1280px) {
     .title {
         font-size: 48px;
@@ -119,7 +181,7 @@
 
 @media (max-width: 640px) {
     .container {
-        padding: 0 15px 30px;
+        padding: 50px 15px 80px 15px;
     }
 
     .title {
