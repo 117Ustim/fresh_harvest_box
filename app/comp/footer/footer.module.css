@@ -160,7 +160,8 @@
 
 @media (max-width: 430px) {
   .container {
-    padding: 0 10px 40px 10px;
+    min-height: 650px;
+    padding: 0 10px 0px 10px;
   }
 
   .content {
