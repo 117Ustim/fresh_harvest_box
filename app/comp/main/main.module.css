@@ -749,16 +749,16 @@
     }
 
     .btnShop {
-        top: calc(160px + 366px - 55px);
+        top: calc(100px + 366px - 55px);
     }
 
     .btnShop img {
-        width: 110px;
-        height: 110px;
+        width: 80px;
+        height: 80px;
     }
 
     .description {
-        top: calc(160px + 366px + 70px);
+        top: calc(175px + 366px + 70px);
         left: 50%;
         transform: translateX(-50%);
         width: 279px;
