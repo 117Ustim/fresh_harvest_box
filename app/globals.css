@@ -10,6 +10,16 @@
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+/* Предотвращение горизонтального скролла */
+* {
+  max-width: 100%;
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
 :focus,:active{outline: none;}
 a:focus,a:active{outline: none;}
 
@@ -18,24 +28,24 @@ nav,footer,header,aside{display: block;}
 html{
   scroll-behavior: smooth;
   scroll-padding-top: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body{
- 
   overflow-x: hidden;
   overflow-y: auto;
-
-	
-	width: 100%;
-	font-size: 100%;
-	line-height: 1;
-	font-size: 14px;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-	max-width: 1920px;
-	margin: 0 auto;
-	background: rgb(222, 221, 221);
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: rgb(222, 221, 221);
+  position: relative;
 }
 
 /* DM Sans font */

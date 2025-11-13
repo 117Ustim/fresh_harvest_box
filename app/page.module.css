@@ -1,18 +1,14 @@
 .wrapper {
   height: 100vh;
   overflow-y: scroll;
-  /* scroll-snap-type: y mandatory; */
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  /* scroll-snap-type: y proximity; */
+  width: 100%;
+  max-width: 100%;
 }
 
 .section {
-  /* height: 100vh; */
-  /* scroll-snap-align: start; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  color: white;
-  font-weight: bold; */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }

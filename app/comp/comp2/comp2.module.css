@@ -1,11 +1,13 @@
 .container {
   width: 100%;
+  max-width: 100%;
   min-height: auto;
   background: rgba(174, 19, 50, 1);
   display: flex;
   justify-content: center;
   margin-top: -1px;
   padding: 0px 20px;
+  overflow-x: hidden;
 }
 
 .content {
