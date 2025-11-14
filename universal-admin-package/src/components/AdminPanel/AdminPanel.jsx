@@ -33,7 +33,10 @@ export function AdminPanel({ config: configProp, database: databaseProp, storage
     storage
   });
 
-  const [configManager] = useState(() => new ConfigManager(config));
+  const [configManager] = useState(() => {
+    const manager = new ConfigManager(config, crudManager);
+    return manager;
+  });
   const [configParser, setConfigParser] = useState(() => new ConfigParser(currentConfig));
 
   // Автоматический импорт отключён - выполняется в AdminProvider
@@ -41,10 +44,15 @@ export function AdminPanel({ config: configProp, database: databaseProp, storage
   //   // Автоимпорт перенесён в app/providers.js
   // }, []);
 
-  // Загружаем список страниц из Firebase при открытии админки
+  // Загружаем список страниц и структуру полей из Firebase при открытии админки
   useEffect(() => {
     if (isOpen && !isLoadingPages) {
       loadPagesFromFirebase();
+      // Загружаем структуру полей
+      configManager.loadFromFirebase().then(() => {
+        const newConfig = configManager.getConfig();
+        setCurrentConfig(newConfig);
+      });
     }
   }, [isOpen]);
 

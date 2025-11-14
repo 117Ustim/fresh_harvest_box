@@ -271,6 +271,7 @@ export function AdminDashboard({
             <DynamicDocumentEditor
               crudManager={crudManager}
               configParser={configParser}
+              configManager={configManager}
               collection={selectedCollection}
               documentId={selectedDocument}
               onBack={() => {

@@ -33,15 +33,18 @@ export function AdminProvider({
 
     // Создаём менеджеры
     const crud = new CrudManager({ database, storage });
-    const configMgr = new ConfigManager(config);
+    const configMgr = new ConfigManager(config, crud);
 
     setCrudManager(crud);
     setConfigManager(configMgr);
-    setIsInitialized(true);
-
-    console.log('✅ AdminProvider initialized');
-    console.log('   Mode:', mode);
-    console.log('   Config:', Object.keys(config.collections || {}).join(', '));
+    
+    // Загружаем структуру полей из Firebase
+    configMgr.loadFromFirebase().then(() => {
+      setIsInitialized(true);
+      console.log('✅ AdminProvider initialized');
+      console.log('   Mode:', mode);
+      console.log('   Config:', Object.keys(config.collections || {}).join(', '));
+    });
   }, [database, storage, config, mode]);
 
   /**

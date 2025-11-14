@@ -1,26 +1,111 @@
 /**
  * Менеджер для работы с конфигурацией админ-панели
- * Сохраняет изменения в localStorage и генерирует код для admin.config.js
+ * Загружает структуру полей из Firebase и сохраняет изменения
  */
 
 const CONFIG_STORAGE_KEY = 'admin_panel_config';
 
 export class ConfigManager {
-  constructor(initialConfig) {
-    // Загружаем сохранённый конфиг
+  constructor(initialConfig, crudManager = null) {
+    this.crudManager = crudManager;
+    this.config = initialConfig;
+    this.isLoadingFromFirebase = false;
+    
+    // Загружаем сохранённый конфиг из localStorage (для обратной совместимости)
     const savedConfig = this.loadConfig();
     
     if (savedConfig) {
       // Объединяем сохранённый конфиг с начальным
-      // Сохранённые страницы имеют приоритет
       this.config = this.mergeConfigs(initialConfig, savedConfig);
       console.log('✅ Загружен конфиг из localStorage');
     } else {
       // Если нет сохранённого - используем начальный
-      this.config = initialConfig;
       this.saveConfig(); // Сохраняем начальный конфиг
       console.log('✅ Инициализирован новый конфиг');
     }
+  }
+  
+  /**
+   * Загрузить структуру полей из Firebase
+   * Вызывается после инициализации когда crudManager доступен
+   */
+  async loadFromFirebase() {
+    if (!this.crudManager || this.isLoadingFromFirebase) {
+      return;
+    }
+    
+    this.isLoadingFromFirebase = true;
+    
+    try {
+      // Загружаем конфигурацию полей из Firebase
+      const firebaseConfig = await this.crudManager.get('_metadata', 'fields_config');
+      
+      if (firebaseConfig?.collections?.pages) {
+        console.log('📄 Загружена структура полей из Firebase');
+        
+        // Объединяем с текущим конфигом
+        if (!this.config.collections) this.config.collections = {};
+        if (!this.config.collections.pages) this.config.collections.pages = {};
+        
+        // Обновляем структуру полей для каждой страницы
+        Object.keys(firebaseConfig.collections.pages).forEach(pageName => {
+          this.config.collections.pages[pageName] = firebaseConfig.collections.pages[pageName];
+          console.log(`  ✅ Загружены поля для страницы: ${pageName}`);
+        });
+        
+        // Сохраняем в localStorage для кэша
+        this.saveConfig();
+      }
+    } catch (error) {
+      console.log('ℹ️ Структура полей в Firebase не найдена (будет создана при первом сохранении)');
+    } finally {
+      this.isLoadingFromFirebase = false;
+    }
+  }
+  
+  /**
+   * Сохранить структуру полей в Firebase
+   */
+  async saveToFirebase() {
+    if (!this.crudManager) {
+      console.warn('⚠️ CrudManager не доступен, сохранение в Firebase пропущено');
+      return false;
+    }
+    
+    try {
+      // Сохраняем только структуру полей (без данных)
+      const fieldsConfig = {
+        collections: {
+          pages: this.config.collections?.pages || {}
+        }
+      };
+      
+      await this.crudManager.update('_metadata', 'fields_config', fieldsConfig);
+      console.log('✅ Структура полей сохранена в Firebase');
+      return true;
+    } catch (error) {
+      // Если документ не существует - создаём
+      try {
+        const fieldsConfig = {
+          collections: {
+            pages: this.config.collections?.pages || {}
+          }
+        };
+        await this.crudManager.create('_metadata', 'fields_config', fieldsConfig);
+        console.log('✅ Структура полей создана в Firebase');
+        return true;
+      } catch (createError) {
+        console.error('❌ Ошибка сохранения структуры полей в Firebase:', createError);
+        return false;
+      }
+    }
+  }
+  
+  /**
+   * Установить crudManager после инициализации
+   */
+  setCrudManager(crudManager) {
+    this.crudManager = crudManager;
   }
 
   // Загрузить конфиг из localStorage
@@ -85,7 +170,7 @@ export class ConfigManager {
   }
 
   // Добавить новую страницу
-  addPage(pageName) {
+  async addPage(pageName) {
     if (!this.config.collections) {
       this.config.collections = {};
     }
@@ -103,6 +188,9 @@ export class ConfigManager {
     
     // Также сохраняем список страниц в отдельный ключ для надёжности
     this.savePagesList();
+    
+    // Сохраняем в Firebase
+    await this.saveToFirebase();
     
     return true;
   }
@@ -130,11 +218,15 @@ export class ConfigManager {
   }
 
   // Удалить страницу
-  deletePage(pageName) {
+  async deletePage(pageName) {
     if (this.config.collections?.pages?.[pageName]) {
       delete this.config.collections.pages[pageName];
       this.saveConfig();
       this.savePagesList(); // Обновляем список страниц
+      
+      // Сохраняем в Firebase
+      await this.saveToFirebase();
+      
       return true;
     }
     return false;
@@ -146,13 +238,17 @@ export class ConfigManager {
   }
 
   // Обновить поля страницы
-  updatePageFields(pageName, fields) {
+  async updatePageFields(pageName, fields) {
     if (!this.config.collections?.pages) {
       return false;
     }
 
     this.config.collections.pages[pageName] = fields;
     this.saveConfig();
+    
+    // Сохраняем в Firebase
+    await this.saveToFirebase();
+    
     return true;
   }
 

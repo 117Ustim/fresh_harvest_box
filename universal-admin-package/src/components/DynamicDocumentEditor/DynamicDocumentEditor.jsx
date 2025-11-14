@@ -13,7 +13,8 @@ export function DynamicDocumentEditor({
   documentId,
   onBack,
   theme,
-  onUpdateConfig
+  onUpdateConfig,
+  configManager
 }) {
   const [data, setData] = useState({});
   const [fields, setFields] = useState([]);
@@ -209,6 +210,15 @@ export function DynamicDocumentEditor({
       });
       onUpdateConfig(collection, documentId, updatedFields);
     }
+    
+    // Сохраняем структуру полей в Firebase
+    if (configManager) {
+      const updatedFields = {};
+      [...fields, newField].forEach(f => {
+        updatedFields[f.name] = f.config;
+      });
+      configManager.updatePageFields(documentId, updatedFields);
+    }
 
     // Показываем уведомление
     console.log(`✅ Поле "${newField.config.label}" добавлено и готово к редактированию`);
@@ -234,6 +244,15 @@ export function DynamicDocumentEditor({
       });
       onUpdateConfig(collection, documentId, updatedFieldsConfig);
     }
+    
+    // Сохраняем структуру полей в Firebase
+    if (configManager) {
+      const updatedFieldsConfig = {};
+      updatedFields.forEach(f => {
+        updatedFieldsConfig[f.name] = f.config;
+      });
+      configManager.updatePageFields(documentId, updatedFieldsConfig);
+    }
   };
 
   // Перемещение поля вверх
@@ -251,6 +270,15 @@ export function DynamicDocumentEditor({
       });
       onUpdateConfig(collection, documentId, updatedFieldsConfig);
     }
+    
+    // Сохраняем структуру полей в Firebase
+    if (configManager) {
+      const updatedFieldsConfig = {};
+      items.forEach(f => {
+        updatedFieldsConfig[f.name] = f.config;
+      });
+      configManager.updatePageFields(documentId, updatedFieldsConfig);
+    }
   };
 
   // Перемещение поля вниз
@@ -267,6 +295,15 @@ export function DynamicDocumentEditor({
         updatedFieldsConfig[f.name] = f.config;
       });
       onUpdateConfig(collection, documentId, updatedFieldsConfig);
+    }
+    
+    // Сохраняем структуру полей в Firebase
+    if (configManager) {
+      const updatedFieldsConfig = {};
+      items.forEach(f => {
+        updatedFieldsConfig[f.name] = f.config;
+      });
+      configManager.updatePageFields(documentId, updatedFieldsConfig);
     }
   };
 
