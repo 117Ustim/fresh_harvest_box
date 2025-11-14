@@ -9,31 +9,17 @@
 
 export const siteData = {
 
-  //MENU//
-  menu: {
-    hero: {
-      phone: '+38 (067) 458-45-67'
-    },
-  },
 
 
 
-  // Главная страница
+  // MAIN //
   main: {
-    //"Главный экран"
-    hero: {
-      title: "Добро пожаловать на наш сайт",
-      description: "Страница «О нас» играет важную стратегическую роль для сайта и бизнеса в целом. Хотя для пользователей она не является основным источником информации о товарах и услугах, она служит промежуточным звеном на пути к совершению сделки. Эта страница предоставляет компании отличную возможность вызывать доверие потенциальных клиентов. Здесь бизнес может представить свою миссию, ценности и нишевое позиционирование. Другими словами, она помогает создать ощущение, что покупка есть нечто большее, чем просто приобретение товара или услуги.",
-      description2: "Каждая компания по-своему подходит к оформлению страницы «О нас». Она даже называется у всех по-разному: «О компании», «О магазине» и т. д. Но, как показывает практика, многие подходят к оформлению About Us Page слишком формально, не уделяют ей должного внимания. В статье мы хотим дать несколько полезных рекомендаций, как профессионально оформить страницу «О нас», а также продемонстрируем вдохновляющие примеры ее исполнения в UA-нете.",
-    },
-    // Секция "Галерея"
-    gallery: {
 
-      images: [
-        "/1/Ukraine.jpg",
-        "/1/japan.jpg",
-        "/1/Norway.jpg",
-      ]
+    hero: {
+      title: " fresh harvest box is your one-stop place for a delicious fruit basket",
+      description: "Our expertly curated fruit baskets are made with the freshest, highest quality fruits available. Whether you are looking for a healthy snack or a gift for a loved one, Fresh Harvest Box has got you covered.",
+      cardDescription1: "Refreshing and juicy, watermelon is the perfect summer treat and a great source of hydration",
+      cardDescription2: "Sweet and juicy, strawberries are packed with vitamin C and antioxidants, making them a delicious and healthy snack",
     }
   },
 
@@ -41,72 +27,37 @@ export const siteData = {
 
 
 
-  // " History"
-  history: {
-    // Секция "Заголовок"
+  //COMP_1 //
+
+  comp1: {
+
     hero: {
-      title: "Это галерея фотографий",
-      column_1_1: "Фотографии реальных людей, которые работают в компании, — это про доверие и открытость. Не скрывайте своих руководителей и сотрудников, разместите снимки на странице сайта «О нас»",
-      column_1_2: "Не только практический опыт, но и реальные A/B-тестирования подтверждают гипотезу о том, что фото с лицами повышают конверсию на сайте. VWO приводит в пример два таких случая",
-      column_2: "Делая снимки вашей команды, подумайте, что нового они могут рассказать о компании. Пользователь проводит на сайте в среднем 2–3 минуты (DataBox), поэтому очень важно не отвлечь его от целевого действия. Мы рекомендуем вносить данные о ролях тех членов команды, чьи фото вы публикуете.",
-    
-     carousel:
-      [
-        '/1/Croatia.jpg',
-        '/1/Germany.jpg',
-        '/1/Norway.jpg',
-        '/1/Ukraine.jpg',
-        '/1/japan.jpg',
-        '/1/peru.jpg',
-        '/2/book_1.png',
-        '/2/book_2.png',
-        '/2/book_3.png',
-        '/2/book_4.png',
-        '/2/book_5.png',
-        '/2/book_6.png'
-      ]
-    
+      title: "To order your fruit basket, simply follow these easy steps",
+      description: "Our baskets are assembled with care and delivered straight to your doorstep, so you can enjoy the taste of fresh fruit without ever leaving your home. Whether you're looking for a healthy snack or a thoughtful gift, our fruit baskets are the perfect choice.",
+
     },
-
-
-   
   },
 
-  // АГЕНСТВА
-  agencies: {
+  comp2: {
 
     hero: {
-      image_bg: "/1/Croatia.jpg",
+      title: "ORGANIC FRUITS",
+      description: "Our organic fruits are hand-picked from local farms and delivered straight to your doorstep, ensuring that you get the freshest and most nutritious produce possible. We offer a wide selection of organic fruits grown without the use of harmful pesticides or chemicals.",
 
-      card: [
-        {
-          title: "Travel Destinations",
-          description: "Discover amazing places around the world with our curated travel guides."
-        },
-        {
-          title: "Local Experiences",
-          description: "Immerse yourself in authentic cultural experiences in every destination."
-        },
-        {
-          title: "Travel Tips",
-          description: "Expert advice to make your journeys smooth and memorable."
-        }
-      ]
 
-    }
-
+    },
   },
 
   //FOOTER 
   footer: {
     hero: {
-      adress1: "г. Киев ул.Крещатик 1 ",
-      adress2: "Бизнес-центр Украина офис 505",
-      phone1: '+38 (067) 458-45-67',
-      phone2: '+38 (095) 538-35-60',
+      address: "03471 Kiyv , Latoshinscogo 42",
+
+      phone: '+380(67) 357-33-54',
+
     },
   },
 
-}
 
+}
 export default siteData;

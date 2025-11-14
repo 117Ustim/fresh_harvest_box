@@ -3,18 +3,23 @@ import styles from './comp1.module.css';
 import Image from 'next/image';
 
 import { useContent } from '../../../universal-admin-package/src/index';
+import siteData from "../../../database.example"
+
+
+
 
 export default function Comp1() {
-  const historyData = useContent('pages.history.hero') || {};
+   // Получаем данные из Firebase через useContent или через database.example
+  const comp1Data = useContent('pages.comp1.hero') || siteData.comp1.hero;
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>
-          To order your fruit basket, simply follow these easy steps
+        <h1 className={styles.title}>{comp1Data.title}
+        
         </h1>
         <p className={styles.description}>
-          Our baskets are assembled with care and delivered straight to your doorstep, so you can enjoy the taste of fresh fruit without ever leaving your home. Whether you're looking for a healthy snack or a thoughtful gift, our fruit baskets are the perfect choice.
+          {comp1Data.description}
         </p>
         
         <div className={styles.cardsContainer}>

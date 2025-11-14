@@ -2,9 +2,12 @@
 import styles from './footer.module.css';
 import Image from 'next/image';
 import { useContent } from '../../../universal-admin-package/src/index';
+import siteData from "../../../database.example"
+
+
 
 export default function Footer() {
-  const footerData = useContent('pages.footer.hero') || {};
+  const footerData = useContent('pages.footer.hero') || siteData.footer.hero;
 
   return (
     <footer className={styles.container}>
@@ -56,8 +59,8 @@ export default function Footer() {
               height={44}
             />
           </div>
-          <div className={styles.phone}>+380(67) 357-33-54</div>
-          <div className={styles.address}>03471 Kiyv , Latoshinscogo 42</div>
+          <div className={styles.phone}>{footerData.phone}</div>
+          <div className={styles.address}>{footerData.address}</div>
         </div>
       </div>
     </footer>

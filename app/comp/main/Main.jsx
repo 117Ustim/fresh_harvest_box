@@ -5,20 +5,23 @@ import Image from 'next/image';
 import Link from 'next/link';
  import { useContent } from '../../../universal-admin-package/src/index';
 import Menu from "./menu/Menu";
+import siteData  from "../../../database.example";
 
 export default function Main ({ openModal }) {
-  // Получаем данные из Firebase через useContent
-  const heroData = useContent('pages.main.hero') || {};
-  const galleryData = useContent('pages.main.gallery') || {};
+  // Получаем данные из Firebase через useContent или database.example
+  const mainData = useContent('pages.main.hero') || siteData.main.hero ;
+
+
+
+
 
   return (
 <>
- {/* Кнопка админ-панели (⚙️ в правом нижнем углу)
-      <AdminPanel theme={{ primaryColor: '#1976D2' }} /> */}
+
     <div className={styles.container}>
    <Menu openModal={openModal} />
-   <h1 className={styles.title}>
-     fresh harvest box is your one-stop place for a delicious fruit basket
+   <h1 className={styles.title}>{mainData.title} 
+  
    </h1>
    
    <div className={styles.imageWomen}>
@@ -75,8 +78,8 @@ export default function Main ({ openModal }) {
      />
    </button>
    
- <p className={styles.description}>
-     Our expertly curated fruit baskets are made with the freshest, highest quality fruits available. Whether you are looking for a healthy snack or a gift for a loved one, Fresh Harvest Box has got you covered.
+ <p className={styles.description}>{mainData.description} 
+    
    </p>
 <div className={styles.fruitCard}>
      <h3>Fruit</h3>
@@ -88,8 +91,8 @@ export default function Main ({ openModal }) {
          height={172}
        />
      </div>
-     <p className={styles.fruitCardText}>
-       Refreshing and juicy, watermelon is the perfect summer treat and a great source of hydration
+     <p className={styles.fruitCardText}>{mainData.cardDescription1} 
+    
      </p>
    </div>
   
@@ -108,8 +111,8 @@ export default function Main ({ openModal }) {
        />
      </div>
      
-     <p className={styles.fruitCardRightText}>
-       Sweet and juicy, strawberries are packed with vitamin C and antioxidants, making them a delicious and healthy snack
+     <p className={styles.fruitCardRightText}>{mainData.cardDescription2}
+     
      </p>
    </div>
    

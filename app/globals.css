@@ -1,4 +1,7 @@
-
+/* DM Sans font */
+:root {
+  --font-dm-sans: 'DM Sans', sans-serif;
+}
 
 *{
 	padding: 0;
@@ -48,10 +51,7 @@ body{
   position: relative;
 }
 
-/* DM Sans font */
-:root {
-  --font-dm-sans: 'DM Sans', sans-serif;
-}
+
 
 /* Плавный скроллинг для всех элементов */
 * {

@@ -4,8 +4,15 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from './comp2.module.css';
 import Image from 'next/image';
+import siteData from "../../../database.example"
+import { useContent } from '../../../universal-admin-package/src/index';
+
 
 export default function Comp2({ openModal }) {
+
+// Получаем данные из Firebase через useContent или через database.example
+  const comp2Data = useContent('pages.comp2.hero') || siteData.comp2.hero;
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const products = [
@@ -31,11 +38,9 @@ export default function Comp2({ openModal }) {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>ORGANIC FRUITS</h1>
+        <h1 className={styles.title}>{comp2Data.title}</h1>
         <p className={styles.description}>
-          Our organic fruits are hand-picked from local farms and delivered straight to your doorstep, 
-          ensuring that you get the freshest and most nutritious produce possible. We offer a wide 
-          selection of organic fruits grown without the use of harmful pesticides or chemicals.
+          {comp2Data.description}
         </p>
 
         <div className={styles.cardsWrapper}>

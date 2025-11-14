@@ -122,6 +122,7 @@
 
 @media (max-width: 480px) {
   .modal {
+    margin-top: 5vh;
     max-height: 98vh;
     border-radius: 12px;
   }
