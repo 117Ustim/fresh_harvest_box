@@ -3,11 +3,11 @@ import { useState } from 'react';
 import styles from './comp3.module.css';
 import Image from 'next/image';
 
-import { useContent } from '../../../universal-admin-package/src/index';
+// import { useContent } from '../../../universal-admin-package/src/index';
 
 export default function Comp3() {
     
-  const comp3Data = useContent('pages.history.hero') || {};
+  // const comp3Data = useContent('pages.history.hero') || {};
   const [email, setEmail] = useState('');
 
   const handleSubmit = async (e) => {
