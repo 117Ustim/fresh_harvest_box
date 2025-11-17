@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect, useRef } from 'react';
 import styles from './comp1.module.css';
 import Image from 'next/image';
 
@@ -11,15 +12,72 @@ import siteData from "../../../database.example"
 export default function Comp1() {
    // Получаем данные из Firebase через useContent или через database.example
   const comp1Data = useContent('pages.comp1.hero') || siteData.comp1.hero;
+  
+  const [displayedTitle, setDisplayedTitle] = useState('');
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
+  const containerRef = useRef(null);
+  const imageRef = useRef(null);
+  const intervalRef = useRef(null);
+
+  // Запуск анимации при каждом скролле
+  useEffect(() => {
+    if (!comp1Data?.title) return;
+
+    const startAnimation = () => {
+      // Очищаем предыдущий интервал если есть
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      
+      setIsAnimating(true);
+      setDisplayedTitle('');
+      setShowDescription(false);
+      
+      const title = comp1Data.title;
+      let currentIndex = 0;
+      
+      intervalRef.current = setInterval(() => {
+        if (currentIndex < title.length) {
+          setDisplayedTitle(title.substring(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+          setIsAnimating(false);
+          setShowDescription(true);
+        }
+      }, 50);
+    };
+
+    const handleScroll = () => {
+      startAnimation();
+    };
+
+    // Запуск анимации при загрузке страницы
+    startAnimation();
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [comp1Data]);
+
+
 
   return (
-    <div className={styles.container}>
+    <div ref={containerRef} className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>{comp1Data.title}
-        
+        <h1 className={styles.title}>
+          {displayedTitle}
+          {isAnimating && <span className={styles.cursor}>|</span>}
         </h1>
-        <p className={styles.description}>
-          {comp1Data.description}
+        <p className={`${styles.description} ${showDescription ? styles.fadeIn : styles.hidden}`}>
+          {comp1Data?.description}
         </p>
         
         <div className={styles.cardsContainer}>
@@ -51,7 +109,7 @@ export default function Comp1() {
           </div>
         </div>
 
-        <div className={styles.imageContainer}>
+        <div ref={imageRef} className={`${styles.imageContainer} ${styles.imageVisible}`}>
           <Image 
             src="/comp_1/gif_1.png" 
             alt="Fruit basket demonstration" 

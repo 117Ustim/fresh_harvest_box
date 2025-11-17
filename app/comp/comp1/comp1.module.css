@@ -38,6 +38,20 @@
   margin: 0;
 }
 
+.cursor {
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 .description {
   width: 100%;
   max-width: 509px;
@@ -55,6 +69,15 @@
   letter-spacing: -0.02em;
   text-align: center;
   margin: 14px 0 0 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 1;
 }
 
 /* Контейнер для карточек */
@@ -229,6 +252,17 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.imageHidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.imageVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Адаптивное изображение */

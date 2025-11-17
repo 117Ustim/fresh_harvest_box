@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
 import styles from './comp2.module.css';
 import Image from 'next/image';
 import siteData from "../../../database.example"
@@ -14,6 +13,67 @@ export default function Comp2({ openModal }) {
   const comp2Data = useContent('pages.comp2.hero') || siteData.comp2.hero;
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [displayedTitle, setDisplayedTitle] = useState('');
+  const [showDescription, setShowDescription] = useState(false);
+  const containerRef = useRef(null);
+  const titleIntervalRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Сбрасываем состояния
+            setIsVisible(false);
+            setDisplayedTitle('');
+            setShowDescription(false);
+            
+            // Очищаем предыдущий интервал если есть
+            if (titleIntervalRef.current) {
+              clearInterval(titleIntervalRef.current);
+            }
+            
+            // Небольшая задержка перед началом анимации
+            setTimeout(() => {
+              setIsVisible(true);
+              
+              // Анимация появления заголовка по буквам
+              const title = comp2Data.title;
+              let currentIndex = 0;
+              
+              titleIntervalRef.current = setInterval(() => {
+                if (currentIndex <= title.length) {
+                  setDisplayedTitle(title.slice(0, currentIndex));
+                  currentIndex++;
+                } else {
+                  clearInterval(titleIntervalRef.current);
+                  // Показываем описание после завершения анимации заголовка
+                  setTimeout(() => {
+                    setShowDescription(true);
+                  }, 200);
+                }
+              }, 100);
+            }, 100);
+          }
+        });
+      },
+      { threshold: 0.2 } // Анимация запускается когда 20% компонента видно
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+      if (titleIntervalRef.current) {
+        clearInterval(titleIntervalRef.current);
+      }
+    };
+  }, [comp2Data.title]);
 
   const products = [
     { title: 'Strawberry', plant: 'Plant', price: 100, bg: 'rgba(248, 118, 107, 1)', image: '/product/image_strawberry.png' },
@@ -36,10 +96,10 @@ export default function Comp2({ openModal }) {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>{comp2Data.title}</h1>
-        <p className={styles.description}>
+    <div className={styles.container} ref={containerRef}>
+      <div className={`${styles.content} ${isVisible ? styles.visible : ''}`}>
+        <h1 className={styles.title}>{displayedTitle}</h1>
+        <p className={`${styles.description} ${showDescription ? styles.descriptionVisible : ''}`}>
           {comp2Data.description}
         </p>
 
@@ -48,8 +108,11 @@ export default function Comp2({ openModal }) {
             {products.map((product, index) => (
               <div 
                 key={index} 
-                className={styles.card}
-                style={{ backgroundColor: product.bg }}
+                className={`${styles.card} ${isVisible ? styles.cardVisible : ''}`}
+                style={{ 
+                  backgroundColor: product.bg,
+                  animationDelay: `${0.1 * index}s`
+                }}
               >
                 <h2 className={styles.cardTitle}>{product.title}</h2>
                 <p className={styles.cardPlant}>{product.plant}</p>
@@ -74,7 +137,7 @@ export default function Comp2({ openModal }) {
               {products.map((product, index) => (
                 <div 
                   key={index} 
-                  className={styles.carouselCard}
+                  className={`${styles.carouselCard} ${isVisible ? styles.cardVisible : ''}`}
                   style={{ backgroundColor: product.bg }}
                 >
                   <h2 className={styles.cardTitle}>{product.title}</h2>

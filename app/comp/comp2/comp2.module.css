@@ -19,6 +19,29 @@
   width: 100%;
 }
 
+.content.visible .title {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.content.visible .description {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.content.visible .cardsWrapper {
+  animation: fadeIn 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.content.visible .orderCircle {
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+  opacity: 0;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+}
+
 .title {
   width: 100%;
   max-width: 624px;
@@ -37,6 +60,8 @@
   text-align: center;
   text-transform: uppercase;
   margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .description {
@@ -56,6 +81,14 @@
   letter-spacing: -0.02em;
   text-align: center;
   margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.description.descriptionVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .orderCircle {
@@ -71,12 +104,18 @@
   margin-top: 44px;
   margin-bottom: 44px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .orderCircle:hover {
-  transform: scale(1.05);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.orderCircle:active {
+  transform: scale(0.95);
 }
 
 .orderIcon {
@@ -127,6 +166,18 @@
   aspect-ratio: 389 / 465;
   border-radius: 20px;
   position: relative;
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.cardVisible {
+  animation: cardSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .cardTitle {
@@ -170,6 +221,11 @@
   top: 29.2%;
   left: 50%;
   transform: translateX(-50%);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .imageWrapper {
+  transform: translateX(-50%) scale(1.08);
 }
 
 .cardImage {
@@ -193,6 +249,11 @@
   bottom: 5.2%;
   left: 6.2%;
   min-width: 120px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .cardButton {
+  transform: scale(1.05);
 }
 
 .buttonText {
@@ -323,3 +384,52 @@
   }
 }
 
+
+/* Keyframes для анимаций */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9) rotateX(20deg);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.02) rotateX(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
